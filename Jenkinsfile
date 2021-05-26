@@ -10,6 +10,15 @@ pipeline {
 				sh 'mvn -B -DskipTests clean package'
 			}
 		}
+		stage('Test') {
+			steps {
+				echo 'Test start!'
+			}
+		}
+		stage('Deliver') {
+			steps {
+//				sh './scripts/deliver.sh'
+			}
+		}
 	}	
-
 }
