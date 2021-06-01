@@ -9,11 +9,13 @@ pipeline {
       steps {
         sh 'mvn -B -DskipTests clean package'
       }
-    }stage ('Test') {
+    }
+    stage ('Test') {
       steps {
         echo 'Test start!'
       }
-    }stage ('Deliver') {
+    }
+    stage ('Deliver') {
       steps {
         sshPublisher(publishers: [
           sshPublisherDesc(configName: 'tomcat',
