@@ -1,18 +1,19 @@
-pipeline{
+pipeline {
   agent any 
-  tools{
+  tools {
     maven'Maven'jdk'openJDK8'
-  }stages{
-    stage('Build'){
-      steps{
-        sh'mvn -B -DskipTests clean package'
+  } 
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn -B -DskipTests clean package'
       }
-    }stage('Test'){
-      steps{
-        echo'Test start!'
+    }stage('Test') {
+      steps {
+        echo 'Test start!'
       }
-    }stage('Deliver'){
-      steps{
+    }stage('Deliver') {
+      steps {
         sshPublisher(publishers: [
           sshPublisherDesc(configName: 'tomcat',
           transfers: [
